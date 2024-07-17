@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Style Calculator</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f7;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .calculator {
+    background-color: #e4e4e7;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+  }
+
+  .display {
+    background-color: #f2f2f7;
+    padding: 10px;
+  }
+
+  .display input {
+    width: calc(100% - 20px);
+    border: none;
+    font-size: 24px;
+    text-align: right;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  button {
+    border: none;
+    background-color: #d1d1d6;
+    color: #000;
+    font-size: 24px;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #c1c1c6;
+  }
+</style>
+</head>
+<body>
+<div class="calculator">
+  <div class="display">
+    <input type="text" id="display" readonly>
+  </div>
+  <div class="keys">
+    <button onclick="appendToDisplay('7')">7</button>
+    <button onclick="appendToDisplay('8')">8</button>
+    <button onclick="appendToDisplay('9')">9</button>
+    <button onclick="appendToDisplay('/')">÷</button>
+    <button onclick="appendToDisplay('4')">4</button>
+    <button onclick="appendToDisplay('5')">5</button>
+    <button onclick="appendToDisplay('6')">6</button>
+    <button onclick="appendToDisplay('*')">×</button>
+    <button onclick="appendToDisplay('1')">1</button>
+    <button onclick="appendToDisplay('2')">2</button>
+    <button onclick="appendToDisplay('3')">3</button>
+    <button onclick="appendToDisplay('-')">-</button>
+    <button onclick="appendToDisplay('0')">0</button>
+    <button onclick="appendToDisplay('.')">.</button>
+    <button onclick="clearDisplay()">AC</button>
+    <button onclick="appendToDisplay('+')">+</button>
+    <button onclick="calculate()">=</button>
+  </div>
+</div>
+
+<script>
+  let display = document.getElementById('display');
+
+  function appendToDisplay(value) {
+    display.value += value;
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+
+  function calculate() {
+    try {
+      display.value = eval(display.value);
+    } catch (e) {
+      display.value = 'Error';
+    }
+  }
+</script>
+</body>
+</html>
