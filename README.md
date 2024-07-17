@@ -1,5 +1,6 @@
 Apple Style HTML Calculator
 This project is a simple HTML calculator styled to resemble Apple's minimalist design aesthetic.
+https://html-calculator.static.domains/calculator
 
 Features
 Basic arithmetic operations (+, -, *, /)
